@@ -32,7 +32,7 @@ export class LocationComponent implements OnInit {
   }
   
   authUser() {
-    var loggedIn = localStorage.getItem('currentUser');
+    var loggedIn = localStorage.getItem('user');
     if (!loggedIn) {
       this.router.navigate(['welcome']);
     }
