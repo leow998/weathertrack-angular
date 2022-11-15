@@ -25,16 +25,16 @@ export class LoginComponent implements OnInit {
     });
   }
   attemptLogin() {
-    // this.userService
-    //   .loginUser(this.loginForm.value.username, this.loginForm.value.password)
-    //   .subscribe((user) => {
-    //     if (user != null) {
-    //       localStorage.setItem('currentUser', user.id.toString());
-    //       alert('Login successfully');
-    //       this.router.navigate(['travels']);
-    //     } else {
-    //       alert('Login failed');
-    //     }
-    //   });
+    this.userService
+      .authCheck(this.loginForm.value.username, this.loginForm.value.password)
+      .subscribe((user) => {
+        if (user != null) {
+          localStorage.setItem('currentUser', user.id.toString());
+          alert('Login successfully');
+          this.router.navigate(['travels']);
+        } else {
+          alert('Login failed');
+        }
+      });
   }
 }

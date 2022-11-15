@@ -14,16 +14,16 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class UserService {
-  private apiServer = 'https://bern-travellog.herokuapp.com/api';
+  private apiServer = 'https://weathertrack-springboot.herokuapp.com//api';
 
   constructor(private httpClient: HttpClient) {}
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': '*'
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': '*',
+      'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS'
     }),
   };
 
@@ -34,25 +34,23 @@ export class UserService {
         JSON.stringify(user),
         this.httpOptions
       )
-      .pipe(catchError(this.errorHandler));
   }
 
+  // DELETE ?
   getById(id: number): Observable<User> {
     return this.httpClient
       .get<User>(this.apiServer + '/users/id/' + id)
-      .pipe(catchError(this.errorHandler));
   }
 
   getByUsername(username: string): Observable<User> {
     return this.httpClient
       .get<User>(this.apiServer + '/users/username/' + username)
-      .pipe(catchError(this.errorHandler));
   }
 
-  loginUser(username: string, password: string): Observable<User> {
+  authCheck(username: string, password: string): Observable<User> {
     var credentials = {
-        "username": username,
-        "password": password
+      username: username,
+      password: password,
     };
     return this.httpClient
       .post<User>(
@@ -60,17 +58,5 @@ export class UserService {
         JSON.stringify(credentials),
         this.httpOptions
       )
-      .pipe(catchError(this.errorHandler));
-  }
-
-  errorHandler(error: any) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      errorMessage = error.error.message;
-    } else {
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    console.log(errorMessage);
-    return throwError(errorMessage);
   }
 }

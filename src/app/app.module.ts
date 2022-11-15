@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -44,6 +45,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     MatInputModule,
     ReactiveFormsModule,
     MatCardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
