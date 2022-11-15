@@ -1,1 +1,11 @@
-<p>map works!</p>
+<input #searchField class="searchField" type="text" />
+<google-map
+  id="map"
+  height="400px"
+  width="100%"
+  [zoom]="zoom"
+  [options]="mapConfig"
+  (mapClick)="placeMarker($event)"
+></google-map>
+
+<app-locationform></app-locationform>

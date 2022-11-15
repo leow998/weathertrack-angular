@@ -1,0 +1,30 @@
+<div class="card-div">
+  <mat-card class="form-card">
+    <mat-card-header>
+      <mat-card-title>Track new Location</mat-card-title>
+      <mat-card-subtitle>Click on the map to get Coordinates</mat-card-subtitle>
+    </mat-card-header>
+    <mat-divider inset></mat-divider>
+    <mat-card-content>
+      <form [formGroup]="locationForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Location Name</mat-label>
+          <input color="primary" formControlName="name" matInput />
+        </mat-form-field>
+        <span class="gap"></span>
+        <mat-form-field class="wide-field" appearance="fill">
+          <mat-label>Coordinates</mat-label>
+          <input
+            color="primary"
+            formControlName="coordinates"
+            matInput
+            readonly
+          />
+        </mat-form-field>
+      </form>
+      <button mat-raised-button color="primary" (click)="addLocation()">
+        Save
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>

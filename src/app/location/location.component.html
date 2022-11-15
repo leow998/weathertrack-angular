@@ -1,1 +1,25 @@
-<p>location works!</p>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">  
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="coordinates">
+      <mat-header-cell *matHeaderCellDef> Coordinates </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.coordinates }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-icon-button color="primary" (click)="getWeather(row.coordinates)">
+            <mat-icon>offline_bolt</mat-icon>
+        </button>
+          <button mat-icon-button color="warn" (click)="deleteLocation(row.id)">
+              <mat-icon>delete</mat-icon>
+          </button>
+      </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+  

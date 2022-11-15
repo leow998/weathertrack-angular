@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import {
   HttpClient,
-  HttpErrorResponse,
   HttpHeaders,
 } from '@angular/common/http';
 
 import { User } from '../models/user';
 
-import { throwError, Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private apiServer = 'https://weathertrack-springboot.herokuapp.com//api';
+  public isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  private apiServer = 'https://weathertrack-springboot.herokuapp.com/api';
 
   constructor(private httpClient: HttpClient) {}
 

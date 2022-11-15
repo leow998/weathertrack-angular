@@ -2,14 +2,10 @@
   <fa-icon class='fa-2x' [icon]="faCloudBolt"></fa-icon>
   <span class="gap"></span>
   <a mat-button (click)="routeMain()">Weather Track</a>
-  <a mat-button [routerLink]="['maps']">Maps</a>
+  <a mat-button (click)="routeMap()">Maps</a>
   <span class="menu-spacer"></span>
   <div *ngIf="loggedIn">
-    <button mat-raised-button color="warn" >
-      Add Travel
-    </button>
-    <span class="mini-spacer"></span>
-    <button mat-raised-button [routerLink]="['welcome']">Logout</button>
+    <button mat-raised-button (click)="logout()">Logout</button>
   </div>
   <div *ngIf="!loggedIn">
     <button mat-raised-button (click)="loginDialog()">Login</button>

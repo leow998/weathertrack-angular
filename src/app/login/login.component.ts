@@ -7,7 +7,7 @@ import { UserService } from '../services/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
@@ -29,11 +29,9 @@ export class LoginComponent implements OnInit {
       .authCheck(this.loginForm.value.username, this.loginForm.value.password)
       .subscribe((user) => {
         if (user != null) {
-          localStorage.setItem('currentUser', user.id.toString());
-          alert('Login successfully');
-          this.router.navigate(['travels']);
-        } else {
-          alert('Login failed');
+          localStorage.setItem('user', user.id.toString());
+          this.userService.isUserLoggedIn.next(true);
+          this.router.navigate(['map']);
         }
       });
   }

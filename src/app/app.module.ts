@@ -9,9 +9,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -21,6 +24,7 @@ import { MapComponent } from './map/map.component';
 import { LocationComponent } from './location/location.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { LocationformComponent } from './locationform/locationform.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     MapComponent,
     LocationComponent,
     WelcomeComponent,
+    LocationformComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
     MatInputModule,
     ReactiveFormsModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    GoogleMapsModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
