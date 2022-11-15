@@ -13,6 +13,7 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'map', component: MapComponent },
     { path: 'register', component: RegisterComponent },
+    { path: '**', component: WelcomeComponent }
 ];
 
 @NgModule({
